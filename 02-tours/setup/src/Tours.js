@@ -1,5 +1,8 @@
 import React from 'react'
 import Tour from './Tour'
+// Tours component maps through tours gotten from api fetch and returns
+//a Tour component for each one, using id as the key and using the spread operator to
+// insert the rest.
 const Tours = ({ tours, removeTour }) => {
 	return (
 		<section>

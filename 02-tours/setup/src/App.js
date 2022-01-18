@@ -5,15 +5,20 @@ import Tours from './Tours'
 // I SWITCHED TO PERMANENT DOMAIN
 //set url to the api endpoint
 const url = 'https://course-api.com/react-tours-project'
+
 function App() {
+	//STATE
 	const [loading, setLoading] = useState(true) //loading state initially set to true
 	const [tours, setTours] = useState([]) //tours state initially set as an empty array
 
+	//REMOVE TOUR
+	//sets newTours to filter tours and return tours that are NOT the tour of item clicked
 	const removeTour = (id) => {
 		const newTours = tours.filter((tour) => tour.id !== id)
+		//sets tours to newTours
 		setTours(newTours)
 	}
-	// Getting the tours from the api
+	// FETCHING TOURS FROM API ASYNC
 	const fetchTours = async () => {
 		setLoading(true) //sets loading to true
 		// try catch block will show more than just the network errors
@@ -38,7 +43,7 @@ function App() {
 		fetchTours()
 	}, [])
 
-	//display logic
+	//DISPLAY LOGIC
 	//if loading is true, return the loading component
 	if (loading) {
 		return (
@@ -61,7 +66,7 @@ function App() {
 			</main>
 		)
 	}
-	//main return
+	//MAIN RETURN
 	//displays Tours component
 	return (
 		<main>
