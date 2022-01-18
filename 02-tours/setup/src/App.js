@@ -10,8 +10,18 @@ function App() {
 
 	const fetchTours = async () => {
 		setLoading(true)
-		const response = await fetch(url)
-		const tours = await response.json()
+		// try catch block will show more than just the network errors
+		// that regular ol' fetch would supply
+		try {
+			const response = await fetch(url)
+			const tours = await response.json()
+			setLoading(false)
+			setTours(tours)
+		} catch (error) {
+			setLoading(false)
+			console.log(error)
+		}
+
 		console.log(tours)
 	}
 
@@ -28,7 +38,7 @@ function App() {
 	}
 	return (
 		<main>
-			<Tours />
+			<Tours tours={tours} />
 		</main>
 	)
 }
