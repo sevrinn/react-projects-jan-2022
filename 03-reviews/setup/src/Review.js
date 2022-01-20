@@ -38,6 +38,7 @@ const Review = () => {
 		if (randomNumber === index) {
 			randomNumber = index + 1
 		}
+		//using checkNumber on randomNumber ensures we dont go beyond the items in array
 		setIndex(checkNumber(randomNumber))
 	}
 	return (
